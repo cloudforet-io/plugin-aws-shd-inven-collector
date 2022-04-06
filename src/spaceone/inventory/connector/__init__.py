@@ -1,0 +1,1 @@
+from spaceone.inventory.connector.aws_translate import AWSTranslateConnector
