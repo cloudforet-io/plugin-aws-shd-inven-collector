@@ -1,23 +1,14 @@
 ---
 name: AWS Service Health Dashboard Collector Plugin
 service_type: inventory.Collector
-image: pyengine/plugin-keycloak-identity-auth
+provider: aws
+image: pyengine/plugin-aws-shd-inven-collector
 labels:
   - Service Health Dashboard
-template:
-  options:
-    schema:
-      properties:
-        project_id:
-          minLength: 4
-          title: Project ID
-          type: string
-        sa_name:
-          minLength: 4
-          title: Service Account
-          type: string
-      required: []
-      type: object
+template: {}
+capability:
+  supported_schema:
+    - aws_access_key
 tags:
   icon: https://spaceone-custom-assets.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws.svg
   description: AWS Service Health Dashboard collector
