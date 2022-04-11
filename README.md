@@ -54,8 +54,6 @@ authentication privilege for followings:
 
 
 ---
-
----
 ## Options
 
 ### Translate a description
