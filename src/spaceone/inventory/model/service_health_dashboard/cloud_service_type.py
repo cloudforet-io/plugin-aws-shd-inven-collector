@@ -21,7 +21,6 @@ cst_shd._metadata = CloudServiceTypeMeta.set_meta(
             'safe': ['RESOLVED'],
             'alert': ['ERROR']
         }),
-        TextDyField.data_source('Region', 'region_code'),
         DateTimeDyField.data_source('Publish Time', 'data.publish_date'),
     ],
     search=[
