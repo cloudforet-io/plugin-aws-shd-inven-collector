@@ -55,3 +55,38 @@ authentication privilege for followings:
 
 ---
 
+---
+## Options
+
+### Translate a description
+
+If translate_enable is added to the list elements in options, Translate the description according to the value set in translate_options.
+By default, `translate_enable` is `True` and `translate_options` example is below.
+
+<pre>
+<code>
+{
+    "translate_enable": true,
+    "translate_options": {
+        "source_lang_code": "en",
+        "target_lang_code": "ko"
+    } 
+}
+</code>
+</pre>
+
+The translated result is stored in `data.translate`.
+
+<pre>
+<code>
+
+"data": {
+    ....
+    "translate": {
+        "translate_enable": true,
+        "translated_text": "EFS 및 FSx 원본 또는 대상 위치를 사용하여 DataSync 작업에 대해 오류 발생률이 높아지는 것을 계속 조사하여 “DataSync 대상 위치가 올바르게 마운트되지 않았습니다.”더 빨리 업데이트하지 않을 경우 오전 8시 (태평양 표준시 기준) 에 업데이트를 제공할 것입니다.",
+        "translate_language": "ko"
+    }
+}
+</code>
+</pre>
