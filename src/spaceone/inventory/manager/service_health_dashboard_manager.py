@@ -89,11 +89,11 @@ class ServiceHealthDashboardManager(AWSManager):
     def translate_description(self, description, params):
         translate_conn: AWSTranslateConnector = self.locator.get_connector(self.connector_name, **params)
         translate_conn.set_client()
-        options = params.get('options', {})
+        translate_options = params.get('options', {}).get('translate_options', {})
 
         return translate_conn.translate(description,
-                                        options.get('source_lang_code', SOURCE_LANG_CODE),
-                                        options.get('target_lang_code', TARGET_LANG_CODE))
+                                        translate_options.get('source_lang_code', SOURCE_LANG_CODE),
+                                        translate_options.get('target_lang_code', TARGET_LANG_CODE))
 
     def generate_error(self, resource_arn, service, error_message):
         _LOGGER.error(f'[generate_error] [{service}] {error_message}')

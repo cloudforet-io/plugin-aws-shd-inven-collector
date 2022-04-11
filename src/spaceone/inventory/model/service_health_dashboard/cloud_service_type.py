@@ -10,7 +10,7 @@ cst_shd.group = 'ServiceHealthDashboard'
 cst_shd.labels = ['Management']
 cst_shd.is_primary = True
 cst_shd.tags = {
-    'spaceone:icon': 'https://spaceone-custom-assets.s3.ap-northeast-2.amazonaws.com/console-assets/icons/cloud-services/aws/AWS-Personal-Health-Dashboard.svg',
+    'spaceone:icon': 'https://spaceone-custom-assets.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws.svg',
 }
 
 cst_shd._metadata = CloudServiceTypeMeta.set_meta(
@@ -21,7 +21,6 @@ cst_shd._metadata = CloudServiceTypeMeta.set_meta(
             'safe': ['RESOLVED'],
             'alert': ['ERROR']
         }),
-        TextDyField.data_source('Region', 'region_code'),
         DateTimeDyField.data_source('Publish Time', 'data.publish_date'),
     ],
     search=[
