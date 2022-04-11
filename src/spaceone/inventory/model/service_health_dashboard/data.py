@@ -14,7 +14,6 @@ class Event(Model):
     description = StringType(default='')
     translate = ModelType(Translate)
     publish_date = DateTimeType(serialize_when_none=False)
-    region_name = StringType(serialize_when_none=False)
     product = StringType(serialize_when_none=False)
     product_name = StringType(serialize_when_none=False)
 

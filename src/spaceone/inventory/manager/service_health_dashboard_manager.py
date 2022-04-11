@@ -53,7 +53,6 @@ class ServiceHealthDashboardManager(AWSManager):
                     product, region = self.get_product_region_from_guid(guid)
 
                     resource.update({
-                        'region_name': REGION_MAP.get(region, region),
                         'product': product,
                         'product_name': PRODUCT_MAP.get(product, product)
                     })
