@@ -11,10 +11,10 @@ class Translate(Model):
 class Event(Model):
     guid = StringType()
     title = StringType(default='')
+    state = StringType(choices=('ERROR', 'RESOLVED'))
     description = StringType(default='')
     translate = ModelType(Translate)
-    publish_date = DateTimeType(deserialize_from="")
-    region_name = StringType(serialize_when_none=False)
+    publish_date = DateTimeType(serialize_when_none=False)
     product = StringType(serialize_when_none=False)
     product_name = StringType(serialize_when_none=False)
 

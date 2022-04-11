@@ -8,29 +8,6 @@ SHD_FEED_URL = 'https://status.aws.amazon.com/rss/all.rss'
 SOURCE_LANG_CODE = 'en'
 TARGET_LANG_CODE = 'ko'
 
-REGION_MAP = {
-    "us-east-2": "미국 동부(오하이오)",
-    "us-east-1": "미국 동부(버지니아 북부)",
-    "us-west-1": "미국 서부(캘리포니아 북부 지역)",
-    "us-west-2": "미국 서부(오레곤)",
-    "ap-east-1": "아시아 태평양(홍콩)",
-    "ap-south-1": "아시아 태평양(뭄바이)",
-    "ap-northeast-3": "아시아 태평양(오사카-로컬)",
-    "ap-northeast-2": "아시아 태평양(서울)",
-    "ap-southeast-1": "아시아 태평양(싱가포르)",
-    "ap-southeast-2": "아시아 태평양(시드니)",
-    "ap-northeast-1": "아시아 태평양(도쿄)",
-    "ca-central-1": "캐나다(중부)",
-    "eu-central-1": "유럽(프랑크푸르트)",
-    "eu-west-1": "유럽(아일랜드)",
-    "eu-west-2": "유럽(런던)",
-    "eu-west-3": "유럽(파리)",
-    "eu-north-1": "유럽(스톡홀름)",
-    "me-south-1": "중동(바레인)",
-    "sa-east-1": "남아메리카(상파울루)",
-    "global": "글로벌"
-}
-
 PRODUCT_MAP = {
     "apigateway": "Amazon API Gateway",
     "appstream2": "Amazon AppStream 2.0",
