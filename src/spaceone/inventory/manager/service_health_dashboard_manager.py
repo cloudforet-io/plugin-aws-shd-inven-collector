@@ -3,6 +3,8 @@ import logging
 import json
 import re
 import ssl
+from datetime import datetime
+from pytz import timezone
 from urllib.request import urlopen
 import xml.etree.ElementTree as ET
 
@@ -41,10 +43,12 @@ class ServiceHealthDashboardManager(AWSManager):
 
                     resource = {
                         'title': element.findtext('title', ''),
-                        'publishing_date': element.findtext('pubDate', ''),
                         'guid': guid,
                         'description': description,
                     }
+
+                    if publish_date := self.convert_datetime_utc(element.findtext('pubDate', '')):
+                        resource.update({'publish_date': publish_date})
 
                     product, region = self.get_product_region_from_guid(guid)
 
@@ -134,3 +138,17 @@ class ServiceHealthDashboardManager(AWSManager):
         context = ssl._create_unverified_context()
         feed_url = urlopen(url, context=context)
         return ET.parse(feed_url)
+
+    @staticmethod
+    def convert_datetime_utc(publish_date):
+        tz = ''
+        try:
+            if "PDT" in publish_date:
+                tz = 'PDT'
+            elif "PST" in publish_date:
+                tz = 'PST'
+
+            dtobj = datetime.strptime(publish_date, f'%a, %d %b %Y %H:%M:%S {tz}')
+            return dtobj.replace(tzinfo=timezone('UTC'))
+        except Exception as e:
+            return None
