@@ -42,7 +42,8 @@ class ServiceHealthDashboardManager(AWSManager):
                     description = element.findtext('description', '')
 
                     resource = {
-                        'title': element.findtext('title', ''),
+                        'title': self.refine_title(element.findtext('title', '')),
+                        'state': self.get_state_from_title(element.findtext('title', '')),
                         'guid': guid,
                         'description': description,
                     }
@@ -151,3 +152,19 @@ class ServiceHealthDashboardManager(AWSManager):
             return dtobj.replace(tzinfo=timezone('UTC'))
         except Exception as e:
             return None
+
+    @staticmethod
+    def refine_title(title):
+        title = title.replace('Informational message: ', '')
+        title = title.replace('Service is operating normally: ', '')
+
+        return title
+
+    @staticmethod
+    def get_state_from_title(title):
+        state = 'ERROR'
+
+        if 'RESOLVED' in title:
+            state = 'RESOLVED'
+
+        return state

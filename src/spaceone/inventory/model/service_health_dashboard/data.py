@@ -11,6 +11,7 @@ class Translate(Model):
 class Event(Model):
     guid = StringType()
     title = StringType(default='')
+    state = StringType(choices=('ERROR', 'RESOLVED'))
     description = StringType(default='')
     translate = ModelType(Translate)
     publish_date = DateTimeType(serialize_when_none=False)
