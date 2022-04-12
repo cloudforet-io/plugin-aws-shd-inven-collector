@@ -2,7 +2,7 @@
 name: AWS Service Health Dashboard Collector Plugin
 service_type: inventory.Collector
 provider: aws
-image: pyengine/plugin-aws-shd-inven-collector
+image: spaceone/plugin-aws-shd-inven-collector
 labels:
   - Service Health Dashboard
 template: {}
