@@ -12,4 +12,4 @@ capability:
 tags:
   icon: https://spaceone-custom-assets.s3.ap-northeast-2.amazonaws.com/console-assets/icons/aws.svg
   description: AWS Service Health Dashboard collector
-  spaceone:plugin_name: aws-service-health-dashboard
+  spaceone:plugin_name: aws-shd-inven-collector
