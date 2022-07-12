@@ -1,6 +1,6 @@
 SUPPORTED_FEATURES = ['garbage_collection']
 SUPPORTED_RESOURCE_TYPE = ['inventory.CloudService', 'inventory.CloudServiceType']
-SUPPORTED_SCHEDULES = ['hours']
+SUPPORTED_SCHEDULES = ['hours', 'interval']
 DEFAULT_REGION = 'us-east-1'
 FILTER_FORMAT = []
 SHD_FEED_URL = 'https://status.aws.amazon.com/rss/all.rss'
