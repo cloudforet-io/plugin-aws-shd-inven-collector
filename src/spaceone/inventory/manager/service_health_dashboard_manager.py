@@ -59,15 +59,19 @@ class ServiceHealthDashboardManager(AWSManager):
                     })
 
                     if translate_enable := options.get('translate_enable', True):
-                        translate = Translate({
-                            'translate_enable': translate_enable,
-                            'translated_text': self.translate_description(description, params),
-                            'translate_language': options.get('target_lang_code', TARGET_LANG_CODE)
-                        }, strict=False)
+                        try:
+                            translate = Translate({
+                                'translate_enable': translate_enable,
+                                'translated_text': self.translate_description(description, params),
+                                'translate_language': options.get('target_lang_code', TARGET_LANG_CODE)
+                            }, strict=False)
 
-                        resource.update({'translate': translate})
-                        # Avoid an errors due to too fast API calls
-                        time.sleep(0.3)
+                            resource.update({'translate': translate})
+                            # Avoid an errors due to too fast API calls
+                            time.sleep(0.3)
+                        except Exception as e:
+                            error_resource_response = self.generate_error(guid, '', e)
+                            event_resources.append(error_resource_response)
 
                     service_data = Event(resource, strict=False)
                     service_resource = EventResource({
