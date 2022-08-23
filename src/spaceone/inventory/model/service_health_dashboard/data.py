@@ -3,7 +3,7 @@ from schematics.types import StringType, DateTimeType, BooleanType, ModelType
 
 
 class Translate(Model):
-    translate_enable = BooleanType(serialize_when_none=False)
+    translate_enable = BooleanType(default=False)
     translated_text = StringType(default='')
     translate_language = StringType(default='')
 
