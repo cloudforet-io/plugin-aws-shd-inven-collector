@@ -139,7 +139,7 @@ class ServiceHealthDashboardManager(AWSManager):
 
     @staticmethod
     def get_element_tree_from_url(url):
-        context = ssl._create_unverified_context()
+        context = ssl.create_default_context()
         feed_url = urlopen(url, context=context)
         return ET.parse(feed_url)
 
